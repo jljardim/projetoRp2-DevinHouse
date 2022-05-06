@@ -50,7 +50,10 @@ public class UserService {
         return new UserTO(newUser.getId(), newUser.getEmail(), newUser.getPassword(), newUser.getResidentId(), roleNames);
     }
 
-    public void delete(Long id) throws IllegalArgumentException, SQLException {
+ 
+    public void delete(Long id) throws Exception {
+    	User user = repository.findOneByResidentId(id).orElseThrow();
+    	userRoleService.deleteByUserId(user.getId());
         repository.deleteByResidentId(id);
     }
 

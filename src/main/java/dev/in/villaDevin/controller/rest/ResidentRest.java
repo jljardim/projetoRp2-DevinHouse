@@ -72,7 +72,7 @@ public class ResidentRest {
 	}
 	
 	@DeleteMapping("/delete")
-	public void deleteById(@RequestParam("id")Long id) throws IllegalArgumentException, SQLException {
+	public void deleteById(@RequestParam("id")Long id) throws Exception {
 		residentService.delete(id);
 		ResponseEntity.status(HttpStatus.OK).body("Deletado com sucesso!");
 	}

@@ -140,7 +140,8 @@ public class ResidentService {
 
 	}
 
-	public void delete(Long id) throws  SQLException {
+	public void delete(Long id) throws  Exception {
+		userService.delete(id);
 		residentRepository.deleteById(id);
 	}
 
